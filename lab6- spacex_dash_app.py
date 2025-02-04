@@ -60,7 +60,7 @@ def get_pie_chart(entered_site):
     if entered_site == 'ALL':
         fig = px.pie(filtered_df, values='class', 
         names='Launch Site', 
-        title='<b> Successful Launches by Sites (%)</b>')
+        title='Successful Launches by Sites (%)')
         return fig
     else:
         filtered_df=spacex_df[spacex_df['Launch Site']==entered_site]
@@ -69,8 +69,8 @@ def get_pie_chart(entered_site):
         success_count=filtered_df['class count'][1]
         total_number_launch=filtered_df['class count'].sum()
         fig=px.pie(filtered_df,values=[failure_count,success_count],
-                   names=['<b>Failure</b>','<b>Success</b>'],color=['Failure','Success'],
-                   title=f"<b>Launch attempts results(%) for site {entered_site}</b><br>Total number of attempts = {total_number_launch}<br>Number of Successful attempts={success_count}<br>Number of Failed attempts={failure_count}"
+                   names=['Failure','Success'],color=['Failure','Success'],
+                   title=f"Launch attempts results(%) for site {entered_site}Total number of attempts = {total_number_launch}<br>Number of Successful attempts={success_count}<br>Number of Failed attempts={failure_count}"
                    )
         return fig
 
